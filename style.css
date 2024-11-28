@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e9e9e9dc;
+}
+
+/* Estilo do botão de abrir jornal */
+.btn-abrir-jornal {
+    background-color: #000000; 
+    color: white;
+    padding: 15px 32px; 
+    text-align: center; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+
+.btn-abrir-jornal:hover {
+    background-color: #5c594b; 
+}
+
+
+.jornal-container {
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease; 
+}
+
+
+.jornal-container.mostrar {
+    opacity: 1; 
+    visibility: visible; 
+}
+
+
+
+.jornal-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 500px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden; 
+    transform: rotateX(0deg); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.jornal-container::before,
+.jornal-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    z-index: 2;
+}
+
+
+.conteudo-jornal {
+    padding: 30px;
+    width: 95%;
+    text-align: center;
+    color: #333;
+}
+
+.conteudo-jornal h1 {
+    font-size: 50px;
+    margin-bottom: 200px;
+    color: #333;
+    text-align: center;
+    position: relative;
+    top: -185px;
+}
+
+
+.quadrado-imagem, .quadrado-imagem2, .quadrado-imagem3, .quadrado-imagem4 {  
+    position: absolute;
+    width: 150px; 
+    height: 150px; 
+    overflow: hidden; 
+}
+
+.quadrado-imagem img, .quadrado-imagem2 img, .quadrado-imagem3 img, .quadrado-imagem4 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+
+.quadrado-imagem {
+    top: 100px;  
+    left: 80px;
+}
+
+.quadrado-imagem2 {
+    bottom: 70px;  
+    right: 80px;
+}
+
+.quadrado-imagem3 {
+    bottom: 185px;  
+    left: 325px;
+}
+
+.quadrado-imagem4 {
+    bottom: 100px;  
+    left: 325px;
+}
+
+
+.quadrado-imagem:hover img, .quadrado-imagem2:hover img, .quadrado-imagem3:hover img, .quadrado-imagem4:hover img {
+    transform: scale(1.1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
+
+@keyframes pulseHeart {
+    0% {
+        transform: rotate(-45deg) scale(1); 
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.2); 
+    }
+    100% {
+        transform: rotate(-45deg) scale(1); 
+    }
+}
+
+/* Coração */
+.heart {
+    position: absolute;
+    bottom: 90px;
+    left: 385px; 
+    width: 30px;
+    height: 30px;
+    background-color: black; 
+    transform: rotate(-45deg); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    animation: pulseHeart 2s ease-in-out infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: black; 
+    border-radius: 50%; 
+}
+
+.heart:before {
+    top: -15px; 
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: 15px; 
+}
+
+
+.heart:hover {
+    transform: rotate(-45deg) scale(2); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); 
+}
+
+
+.conteudo-jornal h1 {
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+    position: relative;
+    top: -185px;
+    margin: 20px 0; 
+}
+
+.conteudo-jornal h1::before,
+.conteudo-jornal h1::after {
+    content: "";
+    display: block;
+    width: 100%; 
+    height: 2px; 
+    background-color: #333; 
+    margin: 10px auto;
+}
+
+@keyframes slideText {
+    0% {
+        transform: translateX(-20px); 
+        opacity: 0.1; 
+    }
+    50% {
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+    100% {
+        transform: translateX(20px); 
+        opacity: 0.1; 
+    }
+}
+
+
+
+h2 {
+    position: absolute;
+    bottom: 60px; 
+    left: 80px; 
+    font-size: 16px;
+    color: #333;
+    white-space: normal; 
+    word-wrap: break-word;
+    width: 150px; 
+    animation: slideText 1s ease-in-out infinite;
+}
+
+h3 {
+    position: absolute;
+    top: 95px; 
+    right: 80px; 
+    font-size: 16px;
+    color: #333;
+    white-space: normal; 
+    word-wrap: break-word; 
+    width: 150px; 
+    animation: slideText 1s ease-in-out infinite;
+}
